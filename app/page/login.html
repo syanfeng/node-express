@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+    <h3>登录</h3>
+<form id="loginForm">
+    <p><label for="username">username:</label><input type="text" name="username" id="username"></p>
+    <p><label for="password">password:</label><input type="text" name="password" id="password"></p>
+    <input type="button" value="submit" class="submit">
+</form>
+
+<script src="/static/libs/jquery/jquery-1.11.3.min.js"></script>
+<script>
+    $(".submit").on("click", function(){
+
+        $.ajax({
+            url:'/account/checkUser.html',
+            type: 'post',
+            data: {
+                username: $("#username").val(),
+                password: $("#password").val()
+            },
+            dataType: 'json',
+            success: function(result){
+                console.log(result);
+            },
+            error: function(e){
+                console.log(e);
+            }
+        })
+    })
+    
+</script>
+</body>
+</html>

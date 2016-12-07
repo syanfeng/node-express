@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+    <h3>注册</h3>
+    <form id="register" action="javascript: void(0)">
+        <p><label for="username">username:</label><input type="text" name="username" id="username" ></p>
+        <p><label for="password">password:</label><input type="password" name="password" id="password" ></p>
+        <button class="submit">注册</button>
+    </form>
+    <script src="/static/libs/jquery/jquery-1.11.3.min.js"></script>
+    <script>
+        $(".submit").on("click", function(){
+
+            $.ajax({
+                url:'/account/addAccount.html',
+                type: 'post',
+                data: {
+                    username: $("#username").val(),
+                    password: $("#password").val()
+                },
+                dataType: 'json',
+                success: function(result){
+                    console.log(result);
+                },
+                error: function(e){
+                    console.log(e);
+                }
+            })
+        })
+        
+    </script>
+</body>
+</html>

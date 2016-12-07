@@ -1,0 +1,20 @@
+{
+  "name": "Node-Express",
+  "version": "1.0.0",
+  "description": "Node+Express 基础项目",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "yanfeng.s",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "multer": "^1.2.0"
+  }
+}

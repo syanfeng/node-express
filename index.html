@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<form action="http://127.0.0.1:8081/process_post" method="POST">
+First Name: <input type="text" name="first_name">  <br>
+
+Last Name: <input type="text" name="last_name">
+<input type="submit" value="Submit">
+</form>
+
+<h3>文件上传：</h3>
+选择一个文件上传: <br />
+<form action="/file_upload" method="post" enctype="multipart/form-data">
+<input type="file" name="image" size="50" />
+<br />
+<input type="submit" value="上传文件" />
+</form>
+<img src="/static/images/logo.png" alt="">
+<script src="/static/libs/jquery/jquery-1.11.3.min.js"></script>
+<script>
+    $.ajax({
+        url:'/user/listUsers',
+        type: 'get',
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+        },
+        error: function(e){
+            console.log(e);
+        }
+    })
+</script>
+</body>
+</html>
