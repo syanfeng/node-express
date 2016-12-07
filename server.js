@@ -13,8 +13,6 @@ app.use(cookieParser())
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-
-
 // 静态文件处理
 app.use('/static',express.static(__dirname + '/static'));
 // user 模块路由
@@ -23,8 +21,6 @@ app.use('/user', user)
 app.use('/birds', birds)
 // account 
 app.use('/account', account)
-
-// user.user(app);
 
 // 首页 正则匹配index.html
 app.get('/?(index.html)?', function (req, res) {
@@ -41,12 +37,10 @@ app.post('/process_post', urlencodedParser, function (req, res) {
   res.end(JSON.stringify(response));
 })
 
+// 没有匹配的路由指向这里
 app.get('*', function(req, res){
   console.log("*", res)
   res.sendFile( __dirname + "/" + "404.html" );
-  // res.render('404.html', {
-  //     title: 'No Found'
-  // })
 });
 
 var server = app.listen(8081, function () {
